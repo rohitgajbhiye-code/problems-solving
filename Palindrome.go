@@ -3,7 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	isPalindrome("mom")
+	flag := isPalindromeOptimized("ababas")
+	if flag {
+		fmt.Println("word is palindrome")
+		return
+	}
+	fmt.Println("word not is palindrome")
 }
 
 /*
@@ -19,4 +24,21 @@ func isPalindrome(word string) {
 		return
 	}
 	fmt.Println("word not is palindrome")
+}
+
+/*
+* Optimized way to check palindrome
+ */
+func isPalindromeOptimized(word string) bool {
+	endIndex := len(word) - 1
+	startIndex := 0
+	for startIndex <= endIndex {
+		if word[startIndex] != word[endIndex] {
+			return false
+		}
+		startIndex++
+		endIndex--
+	}
+	return true
+
 }
